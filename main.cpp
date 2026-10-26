@@ -1,12 +1,18 @@
 #include <iostream>
 #include <utility>
 
-void bubbleSort(int* arr,int size){
+template<typename T>
+void bubbleSort(T* arr,int size){
     for(int i = 0;i<size;++i){
+        bool is_sorted = true;
         for(int j = size-1;j>0;--j){
             if(arr[j]<arr[j-1]){
                 std::swap(arr[j],arr[j-1]);
+                is_sorted = false;
             }
+        }
+        if(is_sorted){
+            return;
         }
     }
 }
